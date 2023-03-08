@@ -9,7 +9,15 @@ def main():
 def encode(raw_pass:list):
     encoded = ''
     for i in raw_pass:
-        i = int(i) + 3
+        i = int(i)
+        if i < 7:
+            i = int(i) + 3
+        elif i == 7:
+            i = 0
+        elif i == 8:
+            i = 1
+        else:
+            i = 2
         encoded += str(i)
     print('Your password has been encoded and stored!')
     return encoded
@@ -17,7 +25,15 @@ def encode(raw_pass:list):
 def decode(password:list): # This is a fully functional version of the code for debugging if there is an error
     decoded = ''
     for i in password:
-        i = int(i) - 3
+        i = int(i)
+        if i == 0:
+            i = 7
+        elif i == 1:
+            i = 8
+        elif i == 2:
+            i = 9
+        else:
+            i = int(i) - 3
         decoded += str(i)
     return decoded
 
@@ -28,7 +44,7 @@ if __name__ == '__main__':
         option = main()
         if option == 1:
             #User input for the password
-            password = encode(list(input('Please enter your password to encode:')))
+            password = encode((input('Please enter your password to encode:')))
         elif option == 2:
             #No point in storing the original password as a variable, just make 1 var and use decode
             try:

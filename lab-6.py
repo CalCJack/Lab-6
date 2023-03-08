@@ -9,7 +9,15 @@ def main():
 def encode(raw_pass:list):
     encoded = ''
     for i in raw_pass:
-        i = int(i) + 3
+        i = int(i)
+        if i < 7:
+            i = int(i) + 3
+        elif i == 7:
+            i = 0
+        elif i == 8:
+            i = 1
+        else:
+            i = 2
         encoded += str(i)
     print('Your password has been encoded and stored!')
     return encoded
