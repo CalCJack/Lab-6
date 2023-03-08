@@ -13,6 +13,7 @@ def encode(raw_pass:list):
         encoded += str(i)
     print('Your password has been encoded and stored!')
     return encoded
+
 def decode(password:list):
     decoded = ''
     for i in password:
