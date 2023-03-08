@@ -14,22 +14,29 @@ def encode(raw_pass:list):
     print('Your password has been encoded and stored!')
     return encoded
 
-def decode(password:list):
+def decode(password:list): # This is a fully functional version of the code for debugging if there is an error
     decoded = ''
     for i in password:
         i = int(i) - 3
         decoded += str(i)
     return decoded
 
+#Initial Conditions for the code to run and name space check so it can be imported
 running, password = True, None
 if __name__ == '__main__':
     while running:
         option = main()
         if option == 1:
-            password = encode((input('Please enter your password to encode:')))
+            #User input for the password
+            password = encode(list(input('Please enter your password to encode:')))
         elif option == 2:
-            print(f'The encoded password is {password}, and the original password is {decode(password)}')
+            #No point in storing the original password as a variable, just make 1 var and use decode
+            try:
+                print(f'The encoded password is {password}, and the original password is {decode(password)}')
+            except:
+                print(f"No password to decode!")
         elif option == 3:
+            #Simple termination of the while loop
             running = False
         else:
             print('Error! Invalid Input.')
