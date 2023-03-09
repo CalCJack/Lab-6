@@ -43,7 +43,10 @@ if __name__ == '__main__':
         if option == 1:
             password = encode((input('Please enter your password to encode:')))
         elif option == 2:
-            print(f'The encoded password is {password}, and the original password is {decode(password)}')
+            try:
+                print(f'The encoded password is {password}, and the original password is {decode(password)}')
+            except:
+                print(f"No password to decode!")
         elif option == 3:
             running = False
         else:
