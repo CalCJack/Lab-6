@@ -8,20 +8,15 @@ def main():
     return int(input('Please select an option: '))
 
 def encode(raw_pass:list):
-    encoded = ''
+    encode = ''
     for i in raw_pass:
-        i = int(i)
-        if i < 7:
-            i = int(i) + 3
-        elif i == 7:
-            i = 0
-        elif i == 8:
-            i = 1
+        if int(i) > 6: # taking into account the size of the number we can filter out ones that take a little extra to change
+            i = ((int(i) + 3) - 10)
         else:
-            i = 2
-        encoded += str(i)
+            i = int(i) + 3 # reassigining it to i just for simplicity sake
+        encode += str(i)
     print('Your password has been encoded and stored!')
-    return encoded
+    return encode
 
 def decode(password:list):
 
